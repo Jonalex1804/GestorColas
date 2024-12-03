@@ -1,0 +1,42 @@
+﻿@model List<String>
+
+<h1 style="text-align: center; color: #4A90E2; font-family: Arial, sans-serif; font-weight: bold; margin-bottom: 20px;">
+    Mensaje Servicio Bus JG
+</h1>
+
+<hr style="border-top: 3px solid #4A90E2; margin-bottom: 30px;" />
+
+<form method="post" style="margin: 0 auto; text-align: center; max-width: 600px; font-family: Arial, sans-serif;">
+    <label style="display: block; margin-bottom: 10px; font-size: 18px; color: #333;">Introduzca un mensaje:</label>
+    <textarea name="mensaje" class="form-control"
+              style="width: 100%; height: 100px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; color: #555;"></textarea>
+    <br />
+    <div style="margin-top: 20px;">
+        <button type="submit" class="btn" name="accion" value="enviar"
+                style="background-color: #4A90E2; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">
+            Enviar Mensaje
+        </button>
+        &nbsp;&nbsp;
+        <button type="submit" class="btn" name="accion" value="recibir"
+                style="background-color: #50E3C2; color: white; border: none; padding: 10px 20px; border-radius: 5px; font-size: 16px; cursor: pointer;">
+            Recibir Mensajes
+        </button>
+    </div>
+</form>
+
+<hr style="border-top: 3px solid #4A90E2; margin-top: 30px;" />
+
+@if (Model != null)
+
+{
+    <ul class="list-group" style="list-style: none; padding: 0; max-width: 600px; margin: 20px auto; font-family: Arial, sans-serif;">
+        @foreach (string msj in Model)
+
+        {
+            <li class="list-group-item"
+                style="background-color: #F5F5F5; margin-bottom: 10px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; color: #333;">
+                @msj
+            </li>
+        }
+    </ul>
+}
